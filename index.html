@@ -358,7 +358,7 @@ counters.forEach(function(c){ cio.observe(c); });
 document.getElementById('contactForm').addEventListener('submit', async function(e){
 e.preventDefault();
 var f=this;var btn=f.querySelector('button');var orig=btn.textContent;btn.disabled=true;btn.textContent='> TRANSMITTING...';
-var data={access_key:'YOUR_WEB3FORMS_KEY',botcheck:'',subject:'Portfolio Uplink from '+document.getElementById('cf-name').value,name:document.getElementById('cf-name').value,email:document.getElementById('cf-email').value,message:document.getElementById('cf-msg').value};
+var data={access_key:'206e967f-59e5-4c41-9eb9-17f6df950857',botcheck:'',subject:'Portfolio Uplink from '+document.getElementById('cf-name').value,name:document.getElementById('cf-name').value,email:document.getElementById('cf-email').value,message:document.getElementById('cf-msg').value};
 try{var res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});var out=await res.json();if(out.success){btn.textContent='> \u2713 TRANSMISSION SENT';f.reset();}else{btn.textContent='> \u2717 FAILED \u2014 RETRY';}}catch(err){btn.textContent='> \u2717 ERROR \u2014 RETRY';}
 btn.disabled=false;setTimeout(function(){btn.textContent=orig;},4000);
 });
